@@ -16,6 +16,11 @@ namespace ConsoleUI
             {
                 Console.WriteLine(car.Description);
             }
+
+            Car car1 = new Car();
+            car1.DailyPrice = 0;
+
+            carManager.Add(car1);
         }
     }
 }

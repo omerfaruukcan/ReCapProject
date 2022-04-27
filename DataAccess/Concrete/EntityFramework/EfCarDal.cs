@@ -16,23 +16,8 @@ namespace DataAccess.Concrete.EntityFramework
             using ReCapContext context = new ReCapContext();
 
             var addedEntity = context.Entry(entity);
-
-            if (entity.DailyPrice > 0)
-            {
-                if (entity.Description.Length >= 2)
-                {
-                    addedEntity.State = EntityState.Added;
-                    context.SaveChanges();
-                }
-                else
-                {
-                    Console.WriteLine("Car name must be at least 2 characters");
-                }
-            }
-            else
-            {
-                Console.WriteLine("The daily price of the car must be greater than 0.");
-            }
+            addedEntity.State = EntityState.Added;
+            context.SaveChanges();
         }
 
         public void Update(Car entity)

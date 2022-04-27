@@ -19,7 +19,21 @@ namespace Business.Concrete
 
         public void Add(Car entity)
         {
-            _carDal.Add(entity);
+            if (entity.DailyPrice > 0)
+            {
+                if (entity.Description.Length >= 2)
+                {
+                    _carDal.Add(entity);
+                }
+                else
+                {
+                    Console.WriteLine("Car name must be at least 2 characters");
+                }
+            }
+            else
+            {
+                Console.WriteLine("The daily price of the car must be greater than 0.");
+            }
         }
 
         public void Delete(Car entity)
