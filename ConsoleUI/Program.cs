@@ -16,7 +16,7 @@ namespace ConsoleUI
 
             //GetCarsByBrandIdTest();
 
-            // GetCarDetailsTest();
+            GetCarDetailsTest();
 
             //GetTest();
 
@@ -66,7 +66,7 @@ namespace ConsoleUI
         {
             ColorManager colorManager = new ColorManager(new EfColorDal());
 
-            foreach (var color in colorManager.GetAll())
+            foreach (var color in colorManager.GetAll().Data)
             {
                 Console.WriteLine(color.ColorName);
             }
@@ -76,14 +76,14 @@ namespace ConsoleUI
         {
             ColorManager colorManager = new ColorManager(new EfColorDal());
             var result = colorManager.Get("Black");
-            Console.WriteLine(result.ColorId);
+            Console.WriteLine(result.Data);
         }
 
         private static void GetCarsByBrandIdTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetCarsByBrandId(2))
+            foreach (var car in carManager.GetCarsByBrandId(2).Data)
             {
                 Console.WriteLine(car.Description);
             }
@@ -93,9 +93,20 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetCarDetails())
+            var result = carManager.GetCarDetails();
+
+            if (result.Success)
             {
-                Console.WriteLine("{0} - {1} - {2} - {3}", car.BrandName, car.CarName, car.ColorName, car.DailyPrice);
+                Console.WriteLine(result.Message + "\n");
+
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine("{0} - {1} - {2} - {3}", car.BrandName, car.CarName, car.ColorName, car.DailyPrice);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
             }
         }
     }
