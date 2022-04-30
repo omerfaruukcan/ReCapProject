@@ -10,21 +10,21 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //CarAddTest();
+            // CarAddTest();
 
-            //CarDeleteTest();
+            // CarDeleteTest();
 
-            //GetCarsByBrandIdTest();
+            // GetCarsByBrandIdTest();
 
-            GetCarDetailsTest();
+            // GetCarDetailsTest();
 
-            //GetTest();
+            // GetTest();
 
-            //GetAllTest();
+            // GetAllTest();
 
-            //BrandAddTest();
+            // BrandAddTest();
 
-            //BrandDeleteTest();
+            // BrandDeleteTest();
         }
 
         private static void CarDeleteTest()
@@ -37,15 +37,7 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            carManager.Add(new Car
-            {
-                ColorId = 3,
-                Description = "asfas",
-                ModelYear = 2020,
-                BrandId = 2,
-                CarName = "abvasfas",
-                DailyPrice = 300
-            });
+            carManager.Add(new Car { BrandId = 2, ColorId = 1, DailyPrice = 100, CarName = "asfasf", Description = "asfkksfka" });
         }
 
         private static void BrandDeleteTest()
