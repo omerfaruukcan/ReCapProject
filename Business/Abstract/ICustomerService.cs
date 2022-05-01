@@ -13,6 +13,6 @@ namespace Business.Abstract
         IResult Delete(Customer customer);
         IDataResult<List<Customer>> GetAll();
         IDataResult<List<Customer>> GetCustomersByCompanyName(string companyname);
-        IDataResult<List<Customer>> GetCustomerByUserId(int id);
+        IDataResult<Customer> GetCustomerByUserId(int id);
     }
 }

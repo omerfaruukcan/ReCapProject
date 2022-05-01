@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,27 +20,30 @@ namespace Business.Concrete
 
         public IResult Add(User user)
         {
-            throw new NotImplementedException();
-        }
-
-        public IResult Delete(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IDataResult<List<User>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IDataResult<List<User>> GetByFirstName(string firstname)
-        {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll(u => u.FirstName == firstname));
+            _userDal.Add(user);
+            return new SuccessResult(Messages.UserAdded);
         }
 
         public IResult Update(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Update(user);
+            return new SuccessResult(Messages.UserUpdated);
+        }
+
+        public IResult Delete(User user)
+        {
+            _userDal.Delete(user);
+            return new SuccessResult(Messages.UserDeleted);
+        }
+
+        public IDataResult<List<User>> GetAll()
+        {
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UsersListed);
+        }
+
+        public IDataResult<List<User>> GetByFirstName(string firstname)
+        {
+            return new SuccessDataResult<List<User>>(_userDal.GetAll(u => u.FirstName == firstname), Messages.UsersFirstNameListed);
         }
     }
 }
