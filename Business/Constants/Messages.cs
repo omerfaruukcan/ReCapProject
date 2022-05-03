@@ -33,12 +33,12 @@ namespace Business.Constants
         public static string UserUpdated = "User Updated";
         public static string UsersListed = "Users Listed";
         public static string UsersFirstNameListed = "Users First Name Listed";
-        internal static string RentalAdded;
-        internal static string RentalInvalid;
-        internal static string RentalDeleted;
-        internal static string RentalUpdated;
-        internal static string RentedCarsListed;
-        internal static string RentedCarsListedByRentDate;
-        internal static string RentedCarsListedByReturnDate;
+        public static string RentalAdded = "Rental Added";
+        public static string RentalInvalid = "Rental Invalid";
+        public static string RentalDeleted = "Rental Deleted";
+        public static string RentalUpdated = "Rental Updated";
+        public static string RentedCarsListed = "Rented Cars Listed";
+        public static string RentedCarsListedByRentDate = "Rented Cars Listed By RentDate";
+        public static string RentedCarsListedByReturnDate = "Rented Cars Listed By ReturnDate";
     }
 }
